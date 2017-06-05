@@ -55,22 +55,24 @@ void Entity::Update(Keyboard & kbd, float dt)
 
 	if (!onGround)
 	{
-		bool once = false;
-		float mlp = 1000.0f;
-		for (float i = 0.0f; i < mlp; i++)
+		// Gravity increaser during time - when hits the ground resets increaser.
+
+		float fixedGrav = 10.0f;
+		float pEnergy = 15.0f;
+		for (float i = 0.0f; i < fixedGrav; i += 0.4f)
 		{
-			pEnergy += i * 0.005f;
+			pEnergy += (i * 0.05f) * dt;
 		}
-		mlp = 0.0f;
-		Falling(dt);
+		Falling(pEnergy, dt);
+		fixedGrav = 10.0f;
 	}
 	ClampToScreen();
 }
 
 
-float Entity::Falling(float dt)
+float Entity::Falling(float pEnergy, float dt)
 {
-	return  pos.y -= dt - pEnergy;
+	return  pos.y -= dt * pEnergy;
 }
 
 float Entity::Speedometer(float dt)

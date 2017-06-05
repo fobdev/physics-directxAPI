@@ -14,7 +14,7 @@ public:
 
 private:
 	void Gravity(float dt);
-	float Falling(float dt);
+	float Falling(float pEnergy, float dt);
 	void ClampToScreen();
 	float Speedometer(float dt);
 
@@ -24,16 +24,15 @@ public:
 
 private:
 	Vector pos;
-	float pEnergy = 1.0f;		 // Potential Energy that increases during fall
 	float gravityAmount = 30.0f; // Gravity variable'
 	float gravityLimit = 50.0f;	 // Gravity	variable
 	float halfW;				 // Test Entity half width
 	float halfH;				 // Test Entity half height
 	float actSpeed = 2.3f;		 // Movement increaser
 	bool alreadyPressed = false; // Jump cooldown based on keyboard hit
-	bool onGround = false;		 // Jump cooldown based on ground collision
+	bool onGround = false; // Jump cooldown based on ground collision
 	bool Gforce = false;
-	bool isFalling = false;		 
+	bool isFalling = false;
 	float speed = 5.0f * 60.0f;
 	static constexpr Color entityColor = Colors::White;
 

@@ -6,7 +6,7 @@ Game::Game(MainWindow& wnd)
 	wnd(wnd),
 	gfx(wnd),
 	entity(Vector(200.0f, 250.0f), sqrSz, sqrSz),
-	ground(Vector(400.0f, 500.0f), int(Graphics::ScreenWidth / 2), 2.0f)
+	ground(Vector(400.0f, 500.0f), int(Graphics::ScreenWidth / 2), 1.5f)
 {
 }
 

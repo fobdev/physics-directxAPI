@@ -19,7 +19,7 @@ public:
 	Vector* pPos = &pos;
 	float* chgPosY = &pPos->y;
 	
-	static constexpr Color groundColor = Colors::Green;
+	static constexpr Color groundColor = Colors::Red;
 	float halfWidth;
 	float halfHeight;
 };
